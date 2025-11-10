@@ -1,6 +1,16 @@
-cmake_minimum_required(VERSION 4.0)
+﻿cmake_minimum_required(VERSION 4.0)
 project(hex_cpp)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(hex_cpp main.cpp)
+IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_compile_definitions(DEBUG)
+ENDIF()
+
+add_executable(hex_cpp main.cpp
+        common.h
+        chunk.h
+        chunk.cpp
+        value.h
+        value.cpp
+)
