@@ -13,4 +13,6 @@ add_executable(hex_cpp main.cpp
         chunk.cpp
         value.h
         value.cpp
+        vm.cpp
+        vm.h
 )

@@ -16,6 +16,14 @@ uint8_t Chunk::get_code_at(const int offset) const {
     return code[offset];
 }
 
+uint8_t* Chunk::get_code() {
+    return &code[0];
+}
+
+Value Chunk::get_constant_at(const int offset) const {
+    return constants.get_value_at(offset);
+}
+
 void Chunk::print_value(const int offset) const {
     constants.print_value(offset);
 }
@@ -41,7 +49,7 @@ static int constant_instruction(const std::string &name, const Chunk* chunk, con
 }
 
 static int simple_instruction(const std::string &name, const int offset) {
-    std::printf("%s\n", name.c_str());
+    std::printf(/*"%s\n"*/ "%s", name.c_str());
     return offset + 1; // OP_RETURN is two bytes
 }
 

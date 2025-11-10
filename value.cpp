@@ -17,3 +17,7 @@ Value ValueArray::get_value_at(const int offset) const {
 void ValueArray::print_value(const int offset) const {
     std::printf("%g", values[offset]);
 }
+
+void print_value(const Value value) {
+    std::printf("%g", value);
+}

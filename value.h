@@ -20,3 +20,5 @@ public:
     [[nodiscard]] size_t count() const;
     [[nodiscard]] Value get_value_at(int offset) const;
 };
+
+void print_value(Value value);

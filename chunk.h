@@ -25,8 +25,11 @@ public:
 
     void write(uint8_t byte, int line);
     size_t add_constant(Value value);
+
     void print_value(int offset) const;
     [[nodiscard]] uint8_t get_code_at(int offset) const;
+    [[nodiscard]] uint8_t* get_code();
+    [[nodiscard]] Value get_constant_at(int offset) const;
 
 #ifdef DEBUG
     void disassemble(const std::string &name) const;

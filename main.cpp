@@ -1,5 +1,6 @@
 ﻿#include "common.h"
 #include "chunk.h"
+#include "vm.h"
 
 int main(int argc, char *argv[]) {
     Chunk chunk;
@@ -11,5 +12,6 @@ int main(int argc, char *argv[]) {
 #ifdef DEBUG
     chunk.disassemble("test chunk");
 #endif
+    vm.interpret(&chunk);
     return 0;
 }
