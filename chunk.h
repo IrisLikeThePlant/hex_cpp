@@ -7,8 +7,13 @@
 #include "value.h"
 
 enum class OpCode : uint8_t {
-    OP_CONSTANT,
-    OP_RETURN,
+    CONSTANT,
+    ADD,
+    SUBTRACT,
+    MULTIPLY,
+    DIVIDE,
+    NEGATE,
+    RETURN,
 };
 
 class Chunk {

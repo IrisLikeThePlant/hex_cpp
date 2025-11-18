@@ -49,7 +49,7 @@ static int constant_instruction(const std::string &name, const Chunk* chunk, con
 }
 
 static int simple_instruction(const std::string &name, const int offset) {
-    std::printf(/*"%s\n"*/ "%s", name.c_str());
+    std::printf("%s\n", name.c_str());
     return offset + 1; // OP_RETURN is two bytes
 }
 
@@ -62,9 +62,19 @@ int Chunk::disassemble_instruction(const int offset) const {
         printf("%4d ", lines[offset]);
 
     switch (const uint8_t instruction = code[offset]) {
-        case static_cast<int>(OpCode::OP_CONSTANT):
+        case static_cast<int>(OpCode::CONSTANT):
             return constant_instruction("OP_CONSTANT", this, offset);
-        case static_cast<int>(OpCode::OP_RETURN):
+        case static_cast<int>(OpCode::ADD):
+            return simple_instruction("OP_ADD", offset);
+        case static_cast<int>(OpCode::SUBTRACT):
+            return simple_instruction("OP_SUBTRACT", offset);
+        case static_cast<int>(OpCode::MULTIPLY):
+            return simple_instruction("OP_MULTIPLY", offset);
+        case static_cast<int>(OpCode::DIVIDE):
+            return simple_instruction("OP_DIVIDE", offset);
+        case static_cast<int>(OpCode::NEGATE):
+            return simple_instruction("OP_NEGATE", offset);
+        case static_cast<int>(OpCode::RETURN):
             return simple_instruction("OP_RETURN", offset);
         default:
             std::printf("Unknown opcode %d\n", instruction);

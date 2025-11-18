@@ -15,4 +15,8 @@ add_executable(hex_cpp main.cpp
         value.cpp
         vm.cpp
         vm.h
+        compiler.h
+        compiler.cpp
+        scanner.cpp
+        scanner.h
 )

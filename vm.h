@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "chunk.h"
+#include "compiler.h"
 
 enum class InterpretResult : uint8_t {
     INTERPRET_OK,
@@ -16,7 +17,7 @@ public:
     VM() = default;
     ~VM() = default;
 
-    InterpretResult interpret(Chunk *pChunk);
+    InterpretResult interpret(std::string &source);
     InterpretResult run();
     void push(Value value);
     Value pop();
